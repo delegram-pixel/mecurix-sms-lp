@@ -17,27 +17,6 @@ export default function Footer() {
         </div>
         <div className="flex flex-col gap-8 sm:flex-row">
           <div>
-            <h3 className="text-lg font-semibold">Links</h3>
-            <ul className="mt-2 flex flex-col gap-2">
-              <li>
-                <Link
-                  href="https://github.com/abdullah-988/Mecurixtech-frontend"
-                  className="text-white/80 hover:text-white"
-                >
-                  Github - Frontend
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="https://github.com/abdullah-988/Mecurixtech-backend"
-                  className="text-white/80 hover:text-white"
-                >
-                  Github - Backend
-                </Link>
-              </li>
-            </ul>
-          </div>
-          <div>
             <h3 className="text-lg font-semibold">Product</h3>
             <ul className="mt-2 flex flex-col gap-2">
               <li>

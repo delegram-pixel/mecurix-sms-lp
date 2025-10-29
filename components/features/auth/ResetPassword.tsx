@@ -69,7 +69,7 @@ export function ResetPassword() {
         <DialogTrigger asChild>
           <Button
             variant="link"
-            className="text-black p-1 text-sm font-semibold"
+            className="p-1 text-sm font-semibold text-black"
             aria-label="Open reset password dialog"
           >
             Forgot your password?
@@ -78,7 +78,7 @@ export function ResetPassword() {
 
         <DialogContent className="flex w-full flex-col justify-between">
           <DialogHeader>
-            <DialogTitle className="text-black text-xl">
+            <DialogTitle className="text-xl text-black">
               Reset Your Password
             </DialogTitle>
             <DialogDescription className="mt-4">
@@ -96,9 +96,7 @@ export function ResetPassword() {
                 name="email"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-black">
-                      Email
-                    </FormLabel>
+                    <FormLabel className="text-black">Email</FormLabel>
                     <FormControl>
                       <Input
                         id="email"

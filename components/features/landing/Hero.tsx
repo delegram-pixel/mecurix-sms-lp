@@ -14,8 +14,8 @@ export default function Hero() {
           duration={2000}
           className="z-10 text-white/90"
           words={["Education", "College", "School", "Course"]}
-        />{" "}
-        <br className="hidden sm:block" />
+        />
+        <br className="sm:hidden" />
         Management, Simplified.
       </h1>
       <p className="mt-6 mb-8 w-full text-sm text-white/70 md:w-4/5 md:text-lg lg:w-3/5">

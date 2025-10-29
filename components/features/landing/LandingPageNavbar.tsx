@@ -31,8 +31,8 @@ export default function LandingPageNavbar({
       className={clsx(
         "fixed z-20 flex w-full items-center justify-between px-8 md:px-16 lg:px-32",
         {
-          "bg-white p-5 duration-400": scrolled,
-          "p-10 duration-200 md:p-16": !scrolled,
+          "bg-white py-3 duration-400": scrolled,
+          "py-5 duration-200 md:py-8": !scrolled,
         },
       )}
     >

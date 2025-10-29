@@ -1,6 +1,4 @@
 import Link from "next/link";
-import GoogleOAuthBtn from "@/components/features/auth/GoogleOAuthBtn";
-// import PenwwwsIcon from "@/components/icons/Penwwws";
 import SignupForm from "@/components/features/auth/SignupForm";
 import AuthPromoAside from "@/components/features/auth/AuthPromoAside";
 
@@ -17,12 +15,12 @@ export default function SignupPage() {
         </Link>
         <div className="flex h-full w-full flex-col items-start justify-center gap-6 md:w-[30rem]">
           <div className="flex flex-col gap-2">
-            <h1 className="text-black text-4xl font-bold">Sign up</h1>
+            <h1 className="text-4xl font-bold text-black">Sign up</h1>
             <span className="text-muted-foreground self-start">
               Already have an account?
               <Link
                 href="/sign-in"
-                className="text-black px-1 font-semibold underline"
+                className="px-1 font-semibold text-black underline"
               >
                 Sign in
               </Link>
@@ -30,14 +28,14 @@ export default function SignupPage() {
           </div>
           <SignupForm />
 
-          <div className="flex w-full items-center">
+          {/* <div className="flex w-full items-center">
             <span className="bg-border h-0.5 flex-grow"></span>
             <span className="text-muted-foreground m-1 text-xs font-semibold uppercase">
               or continue with
             </span>
             <span className="bg-border h-0.5 flex-grow"></span>
-          </div>
-          <GoogleOAuthBtn />
+          </div> */}
+          {/* <GoogleOAuthBtn /> */}
         </div>
       </aside>
       <AuthPromoAside />

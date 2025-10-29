@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function AuthPromoAside() {
   return (
-    <aside className="text-primary-foreground bg-primary relative hidden h-screen items-center justify-center p-8 md:flex lg:w-1/2">
+    <aside className="text-primary-foreground relative hidden h-screen items-center justify-center bg-black p-8 md:flex lg:w-1/2">
       {" "}
       <Link
         href="/"
@@ -16,10 +16,10 @@ export default function AuthPromoAside() {
           width={50}
           height={50}
           alt="Logo"
-          className="flex items-center justify-center gap-2 p-2 pl-0 duration-200 hover:opacity-80"
+          className="flex items-center justify-center gap-2 p-2 pl-0 brightness-0 invert duration-200 hover:opacity-80"
         />
 
-        <span>Mecurixtech</span>
+        <span className="text-white">Mecurixtech</span>
       </Link>
       <PenwwwsIcon className="text-primary-50/5 absolute -top-40 -right-40 h-[45rem] w-[45rem]" />
       <div className="flex flex-col items-center justify-center gap-4 text-center lg:w-[30rem]">
