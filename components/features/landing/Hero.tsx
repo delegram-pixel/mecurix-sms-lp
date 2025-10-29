@@ -31,7 +31,7 @@ export default function Hero() {
       </Link>
       <Image
         className="mt-16 rounded-xl"
-        src="/images/dashboard.png"
+        src="/images/sms-dashboard.png"
         width={3318}
         height={1616}
         priority={true}
