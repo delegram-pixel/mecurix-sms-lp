@@ -1,9 +1,10 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import PenwwwsIcon from "@/components/icons/Penwwws";
+// import PenwwwsIcon from "@/components/icons/Penwwws";
 import clsx from "clsx";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function LandingPageNavbar({
   autoScrolled = false,
@@ -45,7 +46,19 @@ export default function LandingPageNavbar({
           },
         )}
       >
-        <PenwwwsIcon className="size-5 md:size-8" />
+        <Image
+          src="/images/Sms-logo.png"
+          width={50}
+          height={50}
+          alt="Logo"
+          className={clsx(
+            "flex items-center justify-center gap-2 p-2 pl-0 duration-200 hover:opacity-80",
+            {
+              "invert-0": scrolled, // Black logo on white background
+              invert: !scrolled, // White logo on dark background
+            },
+          )}
+        />
         <h1 className="font-bold md:text-2xl">Mecurixtech</h1>
       </Link>
       <div className="text-sm md:text-base">
@@ -67,7 +80,7 @@ export default function LandingPageNavbar({
             "rounded-md px-4 py-2 font-semibold duration-200 hover:opacity-80",
             {
               "bg-black text-white": scrolled,
-              "text-black bg-white": !scrolled,
+              "bg-white text-black": !scrolled,
             },
           )}
           href="/sign-up"

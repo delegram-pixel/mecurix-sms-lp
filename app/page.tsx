@@ -14,7 +14,7 @@ export default function Home() {
       <Features />
       <FAQ />
       <section className="p-8 text-white md:px-16">
-        <div className="bg-black rounded-xl p-8 md:p-16">
+        <div className="rounded-xl bg-black p-8 md:p-16">
           <h2 className="font-jakarta text-xl font-bold sm:text-4xl sm:leading-12 md:text-6xl md:leading-16 lg:w-1/2">
             Ready to Run Your School Smarter?
           </h2>
@@ -24,7 +24,7 @@ export default function Home() {
           </p>
           <Link
             href="/sign-up"
-            className="text-black rounded-md bg-white p-2 px-3 text-sm font-semibold duration-200 hover:opacity-90 md:p-3 md:px-5 md:text-base"
+            className="rounded-md bg-white p-2 px-3 text-sm font-semibold text-black duration-200 hover:opacity-90 md:p-3 md:px-5 md:text-base"
           >
             Get Started
           </Link>

@@ -4,7 +4,6 @@ import SigninForm from "@/components/features/auth/SigninForm";
 import AuthPromoAside from "@/components/features/auth/AuthPromoAside";
 import PenwwwsIcon from "@/components/icons/Penwwws";
 
-
 export default async function SigninPage({
   searchParams,
 }: {

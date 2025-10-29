@@ -1,0 +1,677 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>
+      Module Animations — Results, Announcements, Sessions, Inventory, Classes,
+      Exams
+    </title>
+    <style>
+      :root {
+        --bg: #f6f8fb;
+        --card: #fff;
+        --muted: #9aa3b2;
+        --glass: rgba(255, 255, 255, 0.7);
+        --radius: 18px;
+        --shadow: 0 8px 20px rgba(25, 30, 45, 0.06);
+        --accent: linear-gradient(135deg, #6dd3ff 0%, #7b61ff 100%);
+      }
+      body {
+        font-family:
+          Inter,
+          ui-sans-serif,
+          system-ui,
+          Segoe UI,
+          Roboto,
+          Helvetica,
+          Arial;
+        background: var(--bg);
+        color: #15202b;
+        margin: 32px;
+      }
+      h1 {
+        font-size: 20px;
+        margin-bottom: 8px;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 20px;
+        align-items: start;
+      }
+      .card {
+        background: var(--card);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        padding: 20px;
+        position: relative;
+        overflow: visible;
+      }
+      .title {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .title h2 {
+        font-size: 18px;
+        margin: 0;
+      }
+      .desc {
+        color: var(--muted);
+        margin-top: 8px;
+        font-size: 14px;
+      }
+      /* Module canvas */
+      .canvas {
+        width: 100%;
+        height: 160px;
+        margin-top: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      svg {
+        width: 100%;
+        height: 100%;
+      }
+      .center {
+        fill: #fff;
+        stroke: #e6eef9;
+        stroke-width: 1.5;
+        filter: drop-shadow(0 6px 12px rgba(50, 60, 80, 0.06));
+      }
+      .avatar {
+        fill: #fff;
+        stroke: #eef3fb;
+        stroke-width: 1;
+      }
+      .avatar-bg {
+        fill: #f0f6ff;
+      }
+      /* animated glow dot */
+      .glow {
+        fill: #fff;
+        filter: drop-shadow(0 6px 16px rgba(120, 110, 255, 0.25));
+      }
+      .glow-dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        position: absolute;
+        pointer-events: none;
+      }
+      /* different module colors */
+      .results .stroke {
+        stroke: #4cc9f0;
+        stroke-width: 3;
+        stroke-linecap: round;
+      }
+      .announcements .stroke {
+        stroke: #ff9f43;
+        stroke-width: 3;
+        stroke-linecap: round;
+      }
+      .sessions .stroke {
+        stroke: #3ddc84;
+        stroke-width: 3;
+        stroke-linecap: round;
+      }
+      .inventory .stroke {
+        stroke: #9b5cff;
+        stroke-width: 3;
+        stroke-linecap: round;
+      }
+      .classes .stroke {
+        stroke: #ff6b6b;
+        stroke-width: 3;
+        stroke-linecap: round;
+      }
+      .exams .stroke {
+        stroke: #00aaff;
+        stroke-width: 3;
+        stroke-linecap: round;
+      }
+      /* subtle pulsing for center nodes */
+      .pulse {
+        animation: pulse 2s infinite ease-in-out;
+      }
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+          opacity: 1;
+        }
+        50% {
+          transform: scale(1.06);
+          opacity: 0.9;
+        }
+        100% {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+      /* small shimmer along path implemented via a moving circle (JS) */
+      .label-badge {
+        display: inline-block;
+        padding: 6px 10px;
+        background: linear-gradient(90deg, #fff, #fbfbff);
+        border-radius: 12px;
+        font-size: 13px;
+        color: #273241;
+        margin-left: auto;
+      }
+      /* responsive tweaks */
+      @media (max-width: 420px) {
+        .canvas {
+          height: 200px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Module Animation Demos — standalone blocks (editable)</h1>
+    <p style="color: var(--muted); margin-bottom: 16px">
+      Six creative module visuals. Each card is self-contained. Copy the whole
+      <code>&lt;section&gt;</code> for any module you need and paste into your
+      codebase.
+    </p>
+
+    <div class="grid">
+      <!-- RESULTS -->
+      <section class="card results" data-module="results">
+        <div class="title">
+          <svg width="36" height="36" viewBox="0 0 24 24" aria-hidden>
+            <rect rx="6" width="24" height="24" fill="#eafcff"></rect>
+            <path
+              d="M7 12h10M7 8h10M7 16h6"
+              stroke="#0b6faa"
+              stroke-width="1.6"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+          <h2>Results</h2>
+          <span class="label-badge">Distribution</span>
+        </div>
+        <p class="desc">
+          Teacher marks flow to student profiles. Visualizes distribution of
+          results.
+        </p>
+        <div class="canvas" aria-hidden>
+          <svg viewBox="0 0 900 260" preserveAspectRatio="xMidYMid meet">
+            <!-- center document -->
+            <g transform="translate(380,120)">
+              <circle
+                class="center pulse"
+                r="36"
+                cx="0"
+                cy="0"
+                fill="#fff"
+                stroke="#e6f6ff"
+                stroke-width="1.5"
+              ></circle>
+              <g transform="translate(-10,-8)">
+                <rect
+                  x="-12"
+                  y="-14"
+                  width="24"
+                  height="28"
+                  rx="3"
+                  fill="#f7fbff"
+                ></rect>
+                <path
+                  d="M-6 -6h12M-6 -2h12M-6 2h8"
+                  stroke="#4cc9f0"
+                  stroke-width="1.6"
+                  stroke-linecap="round"
+                ></path>
+              </g>
+            </g>
+
+            <!-- students on right -->
+            <g id="results-students" transform="translate(660,40)">
+              <g transform="translate(0,0)">
+                <circle class="avatar-bg" r="28" cx="0" cy="0"></circle>
+                <text x="-6" y="6" font-size="18" fill="#2b3b46">A</text>
+              </g>
+              <g transform="translate(0,90)">
+                <circle class="avatar-bg" r="28" cx="0" cy="0"></circle>
+                <text x="-6" y="6" font-size="18" fill="#2b3b46">B</text>
+              </g>
+              <g transform="translate(0,180)">
+                <circle class="avatar-bg" r="28" cx="0" cy="0"></circle>
+                <text x="-6" y="6" font-size="18" fill="#2b3b46">C</text>
+              </g>
+            </g>
+
+            <!-- connecting paths -->
+            <path
+              id="rpath1"
+              class="stroke"
+              d="M416 120 C 470 120, 560 90, 640 80"
+              fill="none"
+            ></path>
+            <path
+              id="rpath2"
+              class="stroke"
+              d="M416 120 C 470 130, 560 160, 640 170"
+              fill="none"
+            ></path>
+            <path
+              id="rpath3"
+              class="stroke"
+              d="M416 120 C 470 120, 560 180, 640 260"
+              fill="none"
+            ></path>
+
+            <!-- left teacher -->
+            <g transform="translate(120,120)">
+              <circle class="avatar-bg" r="36"></circle>
+              <text x="-8" y="8" font-size="18" fill="#2b3b46">T</text>
+            </g>
+
+            <!-- hidden moving dot (JS will place a circle via DOM) -->
+          </svg>
+        </div>
+      </section>
+
+      <!-- ANNOUNCEMENTS -->
+      <section class="card announcements" data-module="announcements">
+        <div class="title">
+          <svg width="36" height="36" viewBox="0 0 24 24">
+            <rect rx="6" width="24" height="24" fill="#fff7ec"></rect>
+            <path
+              d="M7 11c0-2 2-4 5-4s5 2 5 4v2l3 2v1H4v-1l3-2v-2z"
+              fill="#ff9f43"
+            />
+          </svg>
+          <h2>Announcements</h2>
+          <span class="label-badge">Broadcast</span>
+        </div>
+        <p class="desc">
+          Admin broadcasts to teachers, students, and parents. Visual is
+          wave/broadcast style.
+        </p>
+        <div class="canvas">
+          <svg viewBox="0 0 900 260">
+            <!-- center megaphone -->
+            <g transform="translate(380,120)">
+              <rect
+                x="-8"
+                y="-18"
+                width="40"
+                height="36"
+                rx="6"
+                class="center pulse"
+              ></rect>
+              <path
+                d="M12 -6 h40 v20 h-40z"
+                fill="#fff2e8"
+                stroke="#ffb86b"
+              ></path>
+              <path
+                d="M12 -2 h36"
+                stroke="#ff9f43"
+                stroke-width="2"
+                stroke-linecap="round"
+              ></path>
+            </g>
+
+            <!-- audience on right -->
+            <g transform="translate(680,60)">
+              <g transform="translate(0,0)">
+                <circle class="avatar-bg" r="22"></circle>
+              </g>
+              <g transform="translate(0,70)">
+                <circle class="avatar-bg" r="22"></circle>
+              </g>
+              <g transform="translate(0,140)">
+                <circle class="avatar-bg" r="22"></circle>
+              </g>
+            </g>
+
+            <!-- broadcast arcs (paths) -->
+            <path
+              id="apath1"
+              class="stroke"
+              d="M420 120 C 520 50, 620 50, 680 60"
+              fill="none"
+            ></path>
+            <path
+              id="apath2"
+              class="stroke"
+              d="M420 120 C 520 120, 620 170, 680 130"
+              fill="none"
+            ></path>
+            <path
+              id="apath3"
+              class="stroke"
+              d="M420 120 C 520 150, 620 200, 680 200"
+              fill="none"
+            ></path>
+          </svg>
+        </div>
+      </section>
+
+      <!-- SESSIONS -->
+      <section class="card sessions" data-module="sessions">
+        <div class="title">
+          <svg width="36" height="36">
+            <rect rx="6" width="24" height="24" fill="#f0fff6"></rect>
+            <path
+              d="M7 12h10M12 7v10"
+              stroke="#16a34a"
+              stroke-width="1.6"
+              stroke-linecap="round"
+            />
+          </svg>
+          <h2>Sessions</h2>
+          <span class="label-badge">Term flow</span>
+        </div>
+        <p class="desc">
+          Shows session progression and term transitions in a looping flow.
+        </p>
+        <div class="canvas">
+          <svg viewBox="0 0 900 260">
+            <!-- timeline nodes -->
+            <g transform="translate(120,120)">
+              <circle class="avatar-bg" r="26"></circle>
+              <text x="-8" y="6">2022</text>
+            </g>
+            <g transform="translate(360,60)">
+              <circle
+                class="center pulse"
+                r="28"
+                fill="#fff"
+                stroke="#e7f9f0"
+              ></circle>
+              <text x="-18" y="6">Term 1</text>
+            </g>
+            <g transform="translate(560,120)">
+              <circle class="avatar-bg" r="26"></circle>
+              <text x="-12" y="6">2023</text>
+            </g>
+
+            <path
+              id="spath"
+              class="stroke"
+              d="M150 120 C 240 80, 430 60, 520 100 C 620 140, 700 120, 560 120"
+              fill="none"
+            ></path>
+          </svg>
+        </div>
+      </section>
+
+      <!-- INVENTORY -->
+      <section class="card inventory" data-module="inventory">
+        <div class="title">
+          <svg width="36" height="36">
+            <rect rx="6" width="24" height="24" fill="#f7f3ff"></rect>
+            <path d="M6 10h12v6H6z" fill="#8b64ff"></path>
+          </svg>
+          <h2>Inventory</h2>
+          <span class="label-badge">Transfer</span>
+        </div>
+        <p class="desc">
+          Visualizes moving items from store to classrooms with a supply chain
+          animation.
+        </p>
+        <div class="canvas">
+          <svg viewBox="0 0 900 260">
+            <!-- store left -->
+            <g transform="translate(120,120)">
+              <rect
+                x="-36"
+                y="-26"
+                width="72"
+                height="52"
+                rx="6"
+                fill="#fff"
+              ></rect>
+              <text x="-22" y="8">Store</text>
+            </g>
+            <!-- class nodes right -->
+            <g transform="translate(620,40)">
+              <circle class="avatar-bg" r="24"></circle>
+              <text x="-10" y="6">C1</text>
+            </g>
+            <g transform="translate(720,120)">
+              <circle class="avatar-bg" r="24"></circle>
+              <text x="-10" y="6">C2</text>
+            </g>
+            <g transform="translate(620,200)">
+              <circle class="avatar-bg" r="24"></circle>
+              <text x="-10" y="6">C3</text>
+            </g>
+
+            <path
+              id="ipath1"
+              class="stroke"
+              d="M180 120 C 340 80, 500 60, 620 40"
+              fill="none"
+            ></path>
+            <path
+              id="ipath2"
+              class="stroke"
+              d="M180 120 C 340 120, 520 140, 720 120"
+              fill="none"
+            ></path>
+            <path
+              id="ipath3"
+              class="stroke"
+              d="M180 120 C 340 180, 520 200, 620 200"
+              fill="none"
+            ></path>
+          </svg>
+        </div>
+      </section>
+
+      <!-- CLASSES -->
+      <section class="card classes" data-module="classes">
+        <div class="title">
+          <svg width="36" height="36">
+            <rect rx="6" width="24" height="24" fill="#fff2f2"></rect>
+            <path d="M8 8h8v8H8z" fill="#ff6b6b"></path>
+          </svg>
+          <h2>Classes</h2>
+          <span class="label-badge">Groups</span>
+        </div>
+        <p class="desc">
+          Shows a subject branching to different students; ideal for class
+          roster visuals.
+        </p>
+        <div class="canvas">
+          <svg viewBox="0 0 900 260">
+            <g transform="translate(360,110)">
+              <circle class="center pulse" r="34"></circle>
+              <text x="-14" y="6">Math</text>
+            </g>
+            <g transform="translate(620,30)">
+              <circle class="avatar-bg" r="22"></circle>
+            </g>
+            <g transform="translate(720,120)">
+              <circle class="avatar-bg" r="22"></circle>
+            </g>
+            <g transform="translate(620,210)">
+              <circle class="avatar-bg" r="22"></circle>
+            </g>
+
+            <path
+              id="cpath1"
+              class="stroke"
+              d="M394 110 C 460 80, 560 50, 620 30"
+              fill="none"
+            ></path>
+            <path
+              id="cpath2"
+              class="stroke"
+              d="M394 110 C 482 120, 600 160, 720 120"
+              fill="none"
+            ></path>
+            <path
+              id="cpath3"
+              class="stroke"
+              d="M394 110 C 460 140, 600 200, 620 210"
+              fill="none"
+            ></path>
+          </svg>
+        </div>
+      </section>
+
+      <!-- EXAMS -->
+      <section class="card exams" data-module="exams">
+        <div class="title">
+          <svg width="36" height="36">
+            <rect rx="6" width="24" height="24" fill="#eef8ff"></rect>
+            <path d="M7 8h10v8H7z" fill="#00aaff"></path>
+          </svg>
+          <h2>Exams</h2>
+          <span class="label-badge">Assessment</span>
+        </div>
+        <p class="desc">
+          Exam paper moves to teacher for marking then results distribute back
+          to students.
+        </p>
+        <div class="canvas">
+          <svg viewBox="0 0 900 260">
+            <!-- exam paper left -->
+            <g transform="translate(120,120)">
+              <rect
+                x="-22"
+                y="-28"
+                width="44"
+                height="56"
+                rx="4"
+                fill="#fff"
+              ></rect>
+              <text x="-10" y="6">Q</text>
+            </g>
+            <!-- marker center -->
+            <g transform="translate(380,120)">
+              <circle class="center pulse" r="34"></circle>
+              <text x="-12" y="6">Marker</text>
+            </g>
+            <!-- students right -->
+            <g transform="translate(700,60)">
+              <circle class="avatar-bg" r="22"></circle>
+            </g>
+            <g transform="translate(700,160)">
+              <circle class="avatar-bg" r="22"></circle>
+            </g>
+
+            <path
+              id="xpath1"
+              class="stroke"
+              d="M154 120 C 260 100, 320 110, 380 120"
+              fill="none"
+            ></path>
+            <path
+              id="xpath2"
+              class="stroke"
+              d="M380 120 C 480 80, 620 60, 700 60"
+              fill="none"
+            ></path>
+            <path
+              id="xpath3"
+              class="stroke"
+              d="M380 120 C 480 160, 620 180, 700 160"
+              fill="none"
+            ></path>
+          </svg>
+        </div>
+      </section>
+    </div>
+
+    <script>
+      /*
+  Generic animator: moves a glowing circle along each path sequentially and back.
+  It finds all paths inside a module card and animates a small circle along them.
+  The animation is continuous and loops.
+*/
+      function attachAnimator(section) {
+        const paths = section.querySelectorAll("path.stroke");
+        if (paths.length === 0) return;
+        const svg = section.querySelector("svg");
+        // create the glow element
+        const ns = "http://www.w3.org/2000/svg";
+        const glow = document.createElementNS(ns, "circle");
+        glow.setAttribute("r", 8);
+        glow.setAttribute("class", "glow");
+        glow.setAttribute("fill", "#fff");
+        // add an inner colored circle for visibility
+        const inner = document.createElementNS(ns, "circle");
+        inner.setAttribute("r", 4);
+        inner.setAttribute("fill", "currentColor");
+        inner.setAttribute("cx", 0);
+        inner.setAttribute("cy", 0);
+        // wrapper g
+        const g = document.createElementNS(ns, "g");
+        g.setAttribute("class", "glow-wrap");
+        g.appendChild(glow);
+        g.appendChild(inner);
+        // set color based on module class
+        const moduleColor =
+          getComputedStyle(section).getPropertyValue("--module-color") || "";
+        // place g in svg
+        svg.appendChild(g);
+        // color mapping by class name
+        const colorMap = {
+          results: "#4cc9f0",
+          announcements: "#ff9f43",
+          sessions: "#3ddc84",
+          inventory: "#9b5cff",
+          classes: "#ff6b6b",
+          exams: "#00aaff",
+        };
+        let color = "#4cc9f0";
+        for (const k in colorMap) {
+          if (section.classList.contains(k)) {
+            color = colorMap[k];
+            break;
+          }
+        }
+        inner.setAttribute("fill", color);
+        glow.setAttribute("filter", "");
+        glow.style.fill = "#fff";
+        // animation variables
+        let pathIndex = 0;
+        let forward = true;
+        let t = 0;
+        const speed = 0.0035 + Math.random() * 0.0015; // speed variation per card
+        function step() {
+          if (!paths[pathIndex]) {
+            pathIndex = 0;
+          }
+          const p = paths[pathIndex];
+          const len = p.getTotalLength();
+          // t goes 0->1 along this path
+          t += forward ? speed : -speed;
+          if (t > 1) {
+            t = 1;
+            forward = false;
+          }
+          if (t < 0) {
+            t = 0;
+            forward = true;
+            pathIndex = (pathIndex + 1) % paths.length;
+          }
+          const pt = p.getPointAtLength(len * t);
+          g.setAttribute("transform", `translate(${pt.x},${pt.y})`);
+          // subtle scale based on t to create pulse
+          const s = 0.85 + 0.3 * Math.sin(t * Math.PI);
+          glow.setAttribute("r", 8 * (0.9 + 0.15 * Math.sin(t * Math.PI)));
+          inner.setAttribute("r", 4 * (0.9 + 0.1 * Math.sin(t * Math.PI)));
+          requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+      }
+
+      // attach for each section when DOM ready
+      document.addEventListener("DOMContentLoaded", () => {
+        document
+          .querySelectorAll("section.card")
+          .forEach((sec) => attachAnimator(sec));
+      });
+    </script>
+  </body>
+</html>

@@ -38,8 +38,8 @@ export default function FAQ() {
               Is it easy to use?
             </AccordionTrigger>
             <AccordionContent className="pb-4 pl-7">
-              Mecurixtech is designed to be user-friendly and intuitive, making it
-              easy for anyone to use.
+              Mecurixtech is designed to be user-friendly and intuitive, making
+              it easy for anyone to use.
             </AccordionContent>
           </AccordionItem>
         </Accordion>
