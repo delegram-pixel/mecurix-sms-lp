@@ -1,17 +1,17 @@
-<h1 align="center">Penwwws</h1>
+<h1 align="center">Mecurixtech</h1>
 
-![Logo](/public/images/penwwws-full-logo.png)
+![Logo](/public/images/Mecurixtech-full-logo.png)
 
 An all-in-one platform to manage students, staff, classes, and school operations—built to make administration simple and efficient.
 
-Check this project's [backend](https://github.com/abdullah-988/penwwws-backend).
+Check this project's [backend](https://github.com/abdullah-988/Mecurixtech-backend).
 
 ## Getting started
 
 To get started with this project, run:
 
 ```bash
-git clone https://github.com/Abdullah-988/penwwws-frontend
+git clone https://github.com/Abdullah-988/Mecurixtech-frontend
 ```
 
 Setup `.env` file:
@@ -39,7 +39,7 @@ npm run dev
 
 ## License
 
-Penwwws is released under the [MIT License](https://opensource.org/licenses/MIT).
+Mecurixtech is released under the [MIT License](https://opensource.org/licenses/MIT).
 
 # mecurix-sms-lp
 

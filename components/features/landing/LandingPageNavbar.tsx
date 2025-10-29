@@ -40,20 +40,20 @@ export default function LandingPageNavbar({
         className={clsx(
           "flex items-center justify-center gap-2 p-2 pl-0 duration-200 hover:opacity-80",
           {
-            "text-primary-900": scrolled,
+            "text-black": scrolled,
             "text-white": !scrolled,
           },
         )}
       >
         <PenwwwsIcon className="size-5 md:size-8" />
-        <h1 className="font-bold md:text-2xl">Penwwws</h1>
+        <h1 className="font-bold md:text-2xl">Mecurixtech</h1>
       </Link>
       <div className="text-sm md:text-base">
         <Link
           className={clsx(
             "mr-2 rounded-md px-4 py-2 font-semibold duration-200",
             {
-              "text-primary-900 hover:opacity-80": scrolled,
+              "text-black hover:opacity-80": scrolled,
               "text-white hover:bg-white/20": !scrolled,
             },
           )}
@@ -61,12 +61,13 @@ export default function LandingPageNavbar({
         >
           Sign In
         </Link>
+
         <Link
           className={clsx(
             "rounded-md px-4 py-2 font-semibold duration-200 hover:opacity-80",
             {
-              "bg-primary-900 text-white": scrolled,
-              "text-primary-900 bg-white": !scrolled,
+              "bg-black text-white": scrolled,
+              "text-black bg-white": !scrolled,
             },
           )}
           href="/sign-up"

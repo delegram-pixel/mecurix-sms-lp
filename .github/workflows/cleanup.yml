@@ -19,7 +19,7 @@ jobs:
       - name: Delete Vercel Backend Preview Deployment
         run: |
           PR_ID=${{ github.event.pull_request.number }}
-          DEPLOY_ALIAS="penwwws-backend-from-frontend-pr-$PR_ID.vercel.app"
+          DEPLOY_ALIAS="Mecurixtech-backend-from-frontend-pr-$PR_ID.vercel.app"
 
           vercel alias ls --token=${{ secrets.VERCEL_TOKEN }} > vercel-alias-list 2>&1
           DEPLOYMENT_URL=$(grep "$DEPLOY_ALIAS" vercel-alias-list | awk '{print $1}')
@@ -35,7 +35,7 @@ jobs:
       - name: Delete Vercel Frontend Preview Deployment
         run: |
           PR_ID=${{ github.event.pull_request.number }}
-          DEPLOY_ALIAS="penwwws-frontend-pr-$PR_ID.vercel.app"
+          DEPLOY_ALIAS="Mecurixtech-frontend-pr-$PR_ID.vercel.app"
 
           vercel alias ls --token=${{ secrets.VERCEL_TOKEN }} > vercel-alias-list 2>&1
           DEPLOYMENT_URL=$(grep "$DEPLOY_ALIAS" vercel-alias-list | awk '{print $1}')

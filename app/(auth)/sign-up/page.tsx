@@ -13,7 +13,7 @@ export default function SignupPage() {
           className="text-primary mb-auto flex items-center gap-1 self-start py-2 text-lg font-semibold md:hidden"
         >
           <PenwwwsIcon className="h-5 w-5" />
-          <span>Penwwws</span>
+          <span>Mecurixtech</span>
         </Link>
         <div className="flex h-full w-full flex-col items-start justify-center gap-6 md:w-[30rem]">
           <div className="flex flex-col gap-2">

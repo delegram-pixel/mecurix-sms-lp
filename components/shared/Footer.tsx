@@ -3,12 +3,12 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="bg-primary-950 p-8 pt-12 pb-4 text-white md:px-16 lg:px-32">
+    <footer className="bg-gradient-to-b from-black via-black to-gray-900 p-8 pt-12 pb-4 text-white md:px-16 lg:px-32">
       <div className="flex flex-col items-start justify-between md:flex-row">
         <div className="mb-8">
           <div className="mt-2 mb-5 flex items-center gap-2">
             <PenwwwsIcon className="h-8 w-8" />
-            <h2 className="text-3xl font-bold">Penwwws</h2>
+            <h2 className="text-3xl font-bold">Mecurixtech</h2>
           </div>
           <p className="text-white/80 md:w-1/2">
             An all-in-one platform to manage students, staff, classes, and
@@ -21,7 +21,7 @@ export default function Footer() {
             <ul className="mt-2 flex flex-col gap-2">
               <li>
                 <Link
-                  href="https://github.com/abdullah-988/penwwws-frontend"
+                  href="https://github.com/abdullah-988/Mecurixtech-frontend"
                   className="text-white/80 hover:text-white"
                 >
                   Github - Frontend
@@ -29,7 +29,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="https://github.com/abdullah-988/penwwws-backend"
+                  href="https://github.com/abdullah-988/Mecurixtech-backend"
                   className="text-white/80 hover:text-white"
                 >
                   Github - Backend
@@ -58,7 +58,7 @@ export default function Footer() {
         </div>
       </div>
       <div className="mt-16 border-t border-white/20 py-4 text-white/80">
-        <p>&copy; 2025 Penwwws. All rights reserved.</p>
+        <p>&copy; 2025 Mecurixtech. All rights reserved.</p>
       </div>
     </footer>
   );
