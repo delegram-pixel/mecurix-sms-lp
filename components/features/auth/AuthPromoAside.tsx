@@ -1,5 +1,6 @@
 import Link from "next/link";
 import PenwwwsIcon from "@/components/icons/Penwwws";
+import Image from "next/image";
 
 export default function AuthPromoAside() {
   return (
@@ -9,8 +10,16 @@ export default function AuthPromoAside() {
         href="/"
         className="absolute top-8 left-8 flex items-center gap-2 text-lg font-semibold"
       >
-        <PenwwwsIcon className="size-6" />
-        <span>Penwwws</span>
+        {/* <PenwwwsIcon className="size-6" /> */}
+        <Image
+          src="/images/Sms-logo.png"
+          width={50}
+          height={50}
+          alt="Logo"
+          className="flex items-center justify-center gap-2 p-2 pl-0 duration-200 hover:opacity-80"
+        />
+
+        <span>Mecurixtech</span>
       </Link>
       <PenwwwsIcon className="text-primary-50/5 absolute -top-40 -right-40 h-[45rem] w-[45rem]" />
       <div className="flex flex-col items-center justify-center gap-4 text-center lg:w-[30rem]">

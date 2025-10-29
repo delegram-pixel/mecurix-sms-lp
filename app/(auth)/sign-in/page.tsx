@@ -24,12 +24,12 @@ export default async function SigninPage({
 
         <div className="flex h-full w-full flex-col items-start justify-center gap-6 md:w-[30rem]">
           <div className="flex flex-col gap-2">
-            <h1 className="text-primary text-4xl font-bold">Sign in</h1>
+            <h1 className="text-black text-4xl font-bold">Sign in</h1>
             <span className="text-muted-foreground self-start">
               Don't have an account?
               <Link
                 href="/sign-up"
-                className="text-primary px-1 font-semibold underline"
+                className="text-black px-1 font-semibold underline"
               >
                 Sign up
               </Link>

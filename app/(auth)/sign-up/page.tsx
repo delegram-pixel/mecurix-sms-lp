@@ -1,6 +1,6 @@
 import Link from "next/link";
 import GoogleOAuthBtn from "@/components/features/auth/GoogleOAuthBtn";
-import PenwwwsIcon from "@/components/icons/Penwwws";
+// import PenwwwsIcon from "@/components/icons/Penwwws";
 import SignupForm from "@/components/features/auth/SignupForm";
 import AuthPromoAside from "@/components/features/auth/AuthPromoAside";
 
@@ -12,17 +12,17 @@ export default function SignupPage() {
           href="/"
           className="text-primary mb-auto flex items-center gap-1 self-start py-2 text-lg font-semibold md:hidden"
         >
-          <PenwwwsIcon className="h-5 w-5" />
+          {/* <PenwwwsIcon className="h-5 w-5" /> */}
           <span>Mecurixtech</span>
         </Link>
         <div className="flex h-full w-full flex-col items-start justify-center gap-6 md:w-[30rem]">
           <div className="flex flex-col gap-2">
-            <h1 className="text-primary text-4xl font-bold">Sign up</h1>
+            <h1 className="text-black text-4xl font-bold">Sign up</h1>
             <span className="text-muted-foreground self-start">
               Already have an account?
               <Link
                 href="/sign-in"
-                className="text-primary px-1 font-semibold underline"
+                className="text-black px-1 font-semibold underline"
               >
                 Sign in
               </Link>
