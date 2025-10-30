@@ -1,7 +1,8 @@
 import Link from "next/link";
 import SigninForm from "@/components/features/auth/SigninForm";
 import AuthPromoAside from "@/components/features/auth/AuthPromoAside";
-import PenwwwsIcon from "@/components/icons/Penwwws";
+import Image from "next/image";
+// import PenwwwsIcon from "@/components/icons/Penwwws";
 
 export default async function SigninPage({
   searchParams,
@@ -15,9 +16,10 @@ export default async function SigninPage({
       <aside className="flex min-h-screen w-full flex-col items-center justify-between p-4 md:h-screen md:w-2/3 lg:w-1/2">
         <Link
           href="/"
-          className="text-primary mb-auto flex w-fit items-center gap-1 self-start text-lg font-semibold md:hidden"
+          className="mb-auto flex w-fit items-center gap-1 self-start text-lg font-semibold text-black md:hidden"
         >
-          <PenwwwsIcon className="h-5 w-5" />
+          {/* <PenwwwsIcon className="h-5 w-5" /> */}
+          <Image src="/images/Sms-logo.png" width={50} height={50} alt="Logo" />
           <span>Mecurixtech</span>
         </Link>
 

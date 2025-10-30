@@ -1,6 +1,7 @@
 import Link from "next/link";
 import SignupForm from "@/components/features/auth/SignupForm";
 import AuthPromoAside from "@/components/features/auth/AuthPromoAside";
+import Image from "next/image";
 
 export default function SignupPage() {
   return (
@@ -8,9 +9,10 @@ export default function SignupPage() {
       <aside className="flex min-h-screen w-full flex-col items-center justify-between p-4 md:h-screen md:w-2/3 lg:w-1/2">
         <Link
           href="/"
-          className="text-primary mb-auto flex items-center gap-1 self-start py-2 text-lg font-semibold md:hidden"
+          className="mb-auto flex items-center gap-1 self-start py-2 text-lg font-semibold text-black md:hidden"
         >
           {/* <PenwwwsIcon className="h-5 w-5" /> */}
+          <Image src="/images/Sms-logo.png" width={50} height={50} alt="Logo" />
           <span>Mecurixtech</span>
         </Link>
         <div className="flex h-full w-full flex-col items-start justify-center gap-6 md:w-[30rem]">

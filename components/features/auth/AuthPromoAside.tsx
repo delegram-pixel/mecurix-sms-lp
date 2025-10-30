@@ -1,6 +1,6 @@
 import Link from "next/link";
-import PenwwwsIcon from "@/components/icons/Penwwws";
 import Image from "next/image";
+import PenwwwsIcon from "@/components/icons/Penwwws";
 
 export default function AuthPromoAside() {
   return (
@@ -10,7 +10,7 @@ export default function AuthPromoAside() {
         href="/"
         className="absolute top-8 left-8 flex items-center gap-2 text-lg font-semibold"
       >
-        {/* <PenwwwsIcon className="size-6" /> */}
+        <PenwwwsIcon className="size-6" />
         <Image
           src="/images/Sms-logo.png"
           width={50}

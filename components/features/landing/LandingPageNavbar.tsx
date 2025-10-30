@@ -54,12 +54,34 @@ export default function LandingPageNavbar({
           className={clsx(
             "flex items-center justify-center gap-2 p-2 pl-0 duration-200 hover:opacity-80",
             {
-              "invert-0": scrolled, // Black logo on white background
-              invert: !scrolled, // White logo on dark background
+              // Always show black logo on sign-in/sign-up pages, otherwise use scroll state
+              "invert-0":
+                scrolled ||
+                (typeof window !== "undefined" &&
+                  (window.location.pathname === "/sign-in" ||
+                    window.location.pathname === "/sign-up")),
+              invert:
+                !scrolled &&
+                typeof window !== "undefined" &&
+                !["/sign-in", "/sign-up"].includes(window.location.pathname),
             },
           )}
         />
-        <h1 className="font-bold md:text-2xl">Mecurixtech</h1>
+        <h1
+          className={clsx("font-bold md:text-2xl", {
+            "text-black":
+              typeof window !== "undefined" &&
+              (window.location.pathname === "/sign-in" ||
+                window.location.pathname === "/sign-up"),
+            "text-inherit": !(
+              typeof window !== "undefined" &&
+              (window.location.pathname === "/sign-in" ||
+                window.location.pathname === "/sign-up")
+            ),
+          })}
+        >
+          Mecurixtech
+        </h1>
       </Link>
       <div className="text-sm md:text-base">
         <Link
