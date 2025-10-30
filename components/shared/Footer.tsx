@@ -1,4 +1,5 @@
-import PenwwwsIcon from "@/components/icons/Penwwws";
+// import PenwwwsIcon from "@/components/icons/Penwwws";
+import Image from "next/image";
 import Link from "next/link";
 
 export default function Footer() {
@@ -7,7 +8,12 @@ export default function Footer() {
       <div className="flex flex-col items-start justify-between md:flex-row">
         <div className="mb-8">
           <div className="mt-2 mb-5 flex items-center gap-2">
-            <PenwwwsIcon className="h-8 w-8" />
+            <Image
+              src="/images/Sms-logo.png"
+              width={50}
+              height={50}
+              alt="Logo"
+            />
             <h2 className="text-3xl font-bold">Mecurixtech</h2>
           </div>
           <p className="text-white/80 md:w-1/2">
